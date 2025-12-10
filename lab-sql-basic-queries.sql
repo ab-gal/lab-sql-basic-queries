@@ -2,11 +2,13 @@ USE sakila;
 show tables;
 
 -- 2
-SELECT * FROM actor, film, customer;
+SELECT * FROM actor;
+SELECT * FROM film;
+SELECT * FROM customer;
 
 -- 3
 SELECT title FROM film;
-Select name from language;
+SELECT name AS language FROM language;
 SELECT first_name FROM staff;
 
 -- 4
@@ -16,11 +18,10 @@ SELECT DISTINCT release_year FROM film;
 SELECT COUNT(store_id) FROM store;
 SELECT COUNT(staff_id) FROM staff;
 
-SELECT COUNT(*) FROM rental WHERE return_date IS NULL;
-SELECT COUNT(*) FROM inventory;
-SELECT (SELECT COUNT(*) FROM inventory)-(SELECT COUNT(*) FROM rental WHERE return_date IS NULL) 
-AS total_available;
-SELECT DISTINCT COUNT(last_name) FROM actor;
+SELECT COUNT(*) FROM film;
+SELECT COUNT(*) FROM rental;
+
+SELECT COUNT(DISTINCT last_name) FROM actor;
 
 -- 6
 SELECT DISTINCT `length` FROM film
